@@ -3,8 +3,20 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apps PWA de Don Beltrán</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apps PWA</title>
+
+  <!-- Fuente moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
   <style>
     * {
       box-sizing: border-box;
@@ -12,55 +24,58 @@
 
     body {
       margin: 0;
-      padding: 20px;
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
+      padding: 10px;
+      font-family: 'Rubik', sans-serif;
+      background: transparent;
+      display: flex;
+      justify-content: center;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 14px;
       width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
+      max-width: 700px;
     }
 
-    .item {
-      background: #ffffff;
+    .card {
+      background: #fff;
       border-radius: 16px;
-      padding: 20px 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-decoration: none;
+      color: #222;
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-decoration: none;
-      color: #333;
-      transition: transform 0.2s ease;
+      justify-content: center;
+      transition: transform 0.25s ease;
+      aspect-ratio: 1 / 1;
+      padding: 14px;
     }
 
-    .item:hover {
+    .card:hover {
       transform: scale(1.05);
     }
 
     .icon {
-      font-size: 36px;
-      margin-bottom: 10px;
+      font-size: 26px;
+      margin-bottom: 6px;
+      color: #0070f3;
     }
 
     .label {
-      font-size: 14px;
+      font-size: 12px;
       text-align: center;
-      font-weight: bold;
     }
 
     @media (min-width: 768px) {
       .icon {
-        font-size: 40px;
+        font-size: 32px;
       }
 
       .label {
-        font-size: 16px;
+        font-size: 14px;
       }
     }
   </style>
@@ -68,44 +83,64 @@
 <body>
 
   <div class="grid">
-
-    <!-- Taxi -->
-    <a class="item" href="https://ferczi3376tseg2.vercel.app/" target="_blank">
-      <div class="icon">🚕</div>
-      <div class="label">Taxi</div>
+    <a class="card" href="https://ferczi3376tseg2.vercel.app/" target="_blank">
+      <div class="icon"><i class="fas fa-taxi"></i></div>
+      <div class="label" data-key="taxi">Taxi</div>
     </a>
 
-    <!-- Restaurante -->
-    <a class="item" href="https://boxdelta-xj19ejem.vercel.app/" target="_blank">
-      <div class="icon">🍽️</div>
-      <div class="label">Restaurante</div>
+    <a class="card" href="https://boxdelta-xj19ejem.vercel.app/" target="_blank">
+      <div class="icon"><i class="fas fa-utensils"></i></div>
+      <div class="label" data-key="restaurant">Restaurante</div>
     </a>
 
-    <!-- Spa -->
-    <a class="item" href="https://appbllza.vercel.app/" target="_blank">
-      <div class="icon">💆‍♀️</div>
-      <div class="label">Spa</div>
+    <a class="card" href="https://appbllza.vercel.app/" target="_blank">
+      <div class="icon"><i class="fas fa-spa"></i></div>
+      <div class="label" data-key="spa">Spa</div>
     </a>
 
-    <!-- Gimnasio -->
-    <a class="item" href="MUYPRONTO" target="_blank">
-      <div class="icon">🏋️‍♂️</div>
-      <div class="label">Gimnasio</div>
+    <a class="card" href="#" target="_blank">
+      <div class="icon"><i class="fas fa-dumbbell"></i></div>
+      <div class="label" data-key="gym">Gimnasio</div>
     </a>
 
-    <!-- Djs -->
-    <a class="item" href="MUYPRONTO" target="_blank">
-      <div class="icon">💿</div>
-      <div class="label">Djs</div>
+    <a class="card" href="#" target="_blank">
+      <div class="icon"><i class="fas fa-compact-disc"></i></div>
+      <div class="label" data-key="dj">Djs</div>
     </a>
 
-    <!-- Radio -->
-    <a class="item" href="MUYPRONTO" target="_blank">
-      <div class="icon">📻</div>
-      <div class="label">Radio</div>
+    <a class="card" href="#" target="_blank">
+      <div class="icon"><i class="fas fa-radio"></i></div>
+      <div class="label" data-key="radio">Radio</div>
     </a>
-
   </div>
+
+  <script>
+    const translations = {
+      en: {
+        taxi: "Taxi",
+        restaurant: "Restaurant",
+        spa: "Spa",
+        gym: "Gym",
+        dj: "DJs",
+        radio: "Radio"
+      },
+      es: {
+        taxi: "Taxi",
+        restaurant: "Restaurante",
+        spa: "Spa",
+        gym: "Gimnasio",
+        dj: "Djs",
+        radio: "Radio"
+      }
+    };
+
+    const lang = navigator.language.startsWith("en") ? "en" : "es";
+    const t = translations[lang];
+
+    document.querySelectorAll("[data-key]").forEach(el => {
+      el.textContent = t[el.dataset.key];
+    });
+  </script>
 
 </body>
 </html>
