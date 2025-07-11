@@ -41,7 +41,7 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 12px;
-      max-width: 420px; /* Ajusta para que no sea muy ancho */
+      max-width: 210px; /* Mitad tamaño */
       margin: 0 auto;
     }
 
@@ -85,7 +85,7 @@
     /* Tablets: 3 columnas */
     @media (min-width: 600px) {
       .grid-container {
-        max-width: 650px;
+        max-width: 325px; /* mitad tamaño */
         grid-template-columns: repeat(3, 1fr);
       }
     }
@@ -93,7 +93,7 @@
     /* Desktop: 4 columnas */
     @media (min-width: 900px) {
       .grid-container {
-        max-width: 900px;
+        max-width: 450px; /* mitad tamaño */
         grid-template-columns: repeat(4, 1fr);
       }
     }
