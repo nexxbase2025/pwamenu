@@ -13,7 +13,6 @@
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-pVbJZNV7Wq6JJQF7Ul5KZP7V0P4N7MlHjD+Qe0vCmVAlw9gWt38NLHEcc2lc7d+RmTq38lV+TvZnI1VxQkx0sw=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
@@ -58,7 +57,7 @@
       color: #222;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
       cursor: pointer;
-      flex: 0 1 48%; /* 2 por fila */
+      flex: 0 1 48%; /* Dos por fila en móvil */
       min-width: 260px;
     }
 
@@ -81,14 +80,14 @@
       user-select: none;
     }
 
-    /* En pantallas más grandes que 700px, quepan 3 cards por fila */
+    /* En pantallas más grandes que 720px, 3 por fila */
     @media (min-width: 720px) {
       .card {
         flex: 0 1 31%;
       }
     }
 
-    /* En pantallas muy pequeñas, 1 sola tarjeta por fila */
+    /* En pantallas muy pequeñas 1 por fila */
     @media (max-width: 400px) {
       .card {
         flex: 1 1 100%;
