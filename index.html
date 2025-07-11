@@ -48,17 +48,19 @@
 
     .card {
       display: flex;
-      align-items: center;
+      flex-direction: column; /* ícono arriba, texto abajo */
+      align-items: center;    /* centrar horizontal */
+      justify-content: center; /* centrar vertical */
       background: rgba(255, 255, 255, 0.95);
       border-radius: 16px;
-      padding: 16px 20px;
+      padding: 16px 10px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.1);
       text-decoration: none;
       color: #222;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
       cursor: pointer;
-      flex: 0 1 48%; /* Dos por fila en móvil */
-      min-width: 260px;
+      flex: 0 1 24%; /* burbujas más pequeñas: ~24% ancho */
+      min-width: 120px; /* para que no se achiquen demasiado */
     }
 
     .card:hover {
@@ -68,7 +70,7 @@
 
     .icon {
       font-size: 30px;
-      margin-right: 18px;
+      margin-bottom: 12px;
       color: #0070f3;
       min-width: 36px;
       text-align: center;
@@ -78,12 +80,14 @@
       font-size: 1.1rem;
       font-weight: 600;
       user-select: none;
+      text-align: center;
     }
 
-    /* En pantallas más grandes que 720px, 3 por fila */
+    /* En pantallas más grandes que 720px, 4 por fila */
     @media (min-width: 720px) {
       .card {
-        flex: 0 1 31%;
+        flex: 0 1 18%; /* 4-5 burbujas por fila */
+        min-width: 110px;
       }
     }
 
