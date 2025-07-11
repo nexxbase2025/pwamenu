@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Apps PWA</title>
 
-  <!-- Google Fonts: Poppins -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <!-- Fuente moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet" />
 
-  <!-- FontAwesome CDN -->
+  <!-- FontAwesome para íconos -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -23,105 +23,82 @@
     }
 
     body {
-      font-family: 'Poppins', Arial, sans-serif;
       margin: 0;
       padding: 20px;
+      font-family: 'Rubik', sans-serif;
       background: transparent;
-      text-align: center;
-      color: #222;
+      display: flex;
+      justify-content: center;
     }
 
-    .grid-container {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      max-width: 210px; /* ajusta tamaño */
-      margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 15px;
+      width: 100%;
+      max-width: 600px;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.95);
+      background: #fff;
       border-radius: 16px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-      color: #222;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       text-decoration: none;
+      color: #222;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: 100%;
       aspect-ratio: 1 / 1;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      cursor: pointer;
-      padding: 10px;
+      transition: transform 0.25s ease;
     }
 
     .card:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      transform: scale(1.06);
     }
 
     .icon {
-      font-size: 24px;
-      margin-bottom: 6px;
+      font-size: 1.8rem;
+      margin-bottom: 5px;
       color: #0070f3;
-      user-select: none;
     }
 
     .label {
-      font-size: 0.9rem;
-      font-weight: 600;
-      user-select: none;
+      font-size: 0.85rem;
+      font-weight: 500;
       text-align: center;
-      line-height: 1;
-    }
-
-    /* Tablets: 3 columnas */
-    @media (min-width: 600px) {
-      .grid-container {
-        max-width: 325px;
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    /* Desktop: 4 columnas */
-    @media (min-width: 900px) {
-      .grid-container {
-        max-width: 450px;
-        grid-template-columns: repeat(4, 1fr);
-      }
     }
   </style>
 </head>
 <body>
 
-  <div class="grid-container">
-    <a class="card" href="https://ferczi3376tseg2.vercel.app/" target="_blank" rel="noopener noreferrer">
+  <div class="grid">
+    <a class="card" href="https://ferczi3376tseg2.vercel.app/" target="_blank">
       <div class="icon"><i class="fas fa-taxi"></i></div>
       <div class="label" data-key="taxi">Taxi</div>
     </a>
 
-    <a class="card" href="https://boxdelta-xj19ejem.vercel.app/" target="_blank" rel="noopener noreferrer">
+    <a class="card" href="https://boxdelta-xj19ejem.vercel.app/" target="_blank">
       <div class="icon"><i class="fas fa-utensils"></i></div>
       <div class="label" data-key="restaurant">Restaurante</div>
     </a>
 
-    <a class="card" href="https://appbllza.vercel.app/" target="_blank" rel="noopener noreferrer">
+    <a class="card" href="https://appbllza.vercel.app/" target="_blank">
       <div class="icon"><i class="fas fa-spa"></i></div>
       <div class="label" data-key="spa">Spa</div>
     </a>
 
-    <a class="card" href="MUYPRONTO" target="_blank" rel="noopener noreferrer">
+    <a class="card" href="MUYPRONTO" target="_blank">
       <div class="icon"><i class="fas fa-dumbbell"></i></div>
       <div class="label" data-key="gym">Gimnasio</div>
     </a>
 
-    <a class="card" href="MUYPRONTO" target="_blank" rel="noopener noreferrer">
+    <a class="card" href="MUYPRONTO" target="_blank">
       <div class="icon"><i class="fas fa-compact-disc"></i></div>
       <div class="label" data-key="dj">Djs</div>
     </a>
 
-    <a class="card" href="MUYPRONTO" target="_blank" rel="noopener noreferrer">
+    <a class="card" href="MUYPRONTO" target="_blank">
       <div class="icon"><i class="fas fa-radio"></i></div>
       <div class="label" data-key="radio">Radio</div>
     </a>
