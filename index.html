@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apps PWA de Don Beltrán</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .bubbles-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .bubble {
+      background: #fff;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: #333;
+      transition: transform 0.2s ease;
+    }
+
+    .bubble:hover {
+      transform: scale(1.05);
+    }
+
+    .bubble-icon {
+      font-size: 36px;
+      margin-bottom: 5px;
+    }
+
+    .bubble-label {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 500px) {
+      .bubble {
+        width: 100px;
+        height: 100px;
+      }
+
+      .bubble-icon {
+        font-size: 28px;
+      }
+
+      .bubble-label {
+        font-size: 12px;
+      }
+    }
+  </style>
+
+  <!-- Íconos con Emoji (puedes reemplazar por imágenes o FontAwesome si quieres algo más pro) -->
+</head>
+<body>
+
+  <h1>Explora nuestras Apps PWA</h1>
+
+  <div class="bubbles-container">
+
+    <!-- Taxi -->
+    <a class="bubble" href="https://ferczi3376tseg2.vercel.app/" target="_blank">
+      <div class="bubble-icon">🚕</div>
+      <div class="bubble-label">Taxi</div>
+    </a>
+
+    <!-- Restaurante -->
+    <a class="bubble" href="https://boxdelta-xj19ejem.vercel.app/" target="_blank">
+      <div class="bubble-icon">🍽️</div>
+      <div class="bubble-label">Restaurante</div>
+    </a>
+
+    <!-- Spa -->
+    <a class="bubble" href="https://appbllza.vercel.app/" target="_blank">
+      <div class="bubble-icon">💆‍♀️</div>
+      <div class="bubble-label">Spa</div>
+    </a>
+
+    <!-- Gimnasio -->
+    <a class="bubble" href="https://tupwa-gym.vercel.app" target="_blank">
+      <div class="bubble-icon">🏋️‍♂️</div>
+      <div class="bubble-label">Gimnasio</div>
+    </a>
+
+  </div>
+
+</body>
+</html>
