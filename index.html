@@ -59,8 +59,10 @@
       color: #222;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
       cursor: pointer;
-      flex: 0 1 24%; /* burbujas más pequeñas: ~24% ancho */
-      min-width: 120px; /* para que no se achiquen demasiado */
+      width: 140px;   /* tamaño fijo ancho */
+      height: 140px;  /* tamaño fijo alto */
+      min-width: auto; /* evitar ajuste automático */
+      min-height: auto;
     }
 
     .card:hover {
@@ -83,19 +85,29 @@
       text-align: center;
     }
 
-    /* En pantallas más grandes que 720px, 4 por fila */
-    @media (min-width: 720px) {
+    /* Responsive */
+
+    /* Para pantallas menos de 600px: 2 por fila */
+    @media (max-width: 599px) {
       .card {
-        flex: 0 1 18%; /* 4-5 burbujas por fila */
-        min-width: 110px;
+        flex: 0 0 48%;
+        margin-bottom: 16px;
       }
     }
 
-    /* En pantallas muy pequeñas 1 por fila */
-    @media (max-width: 400px) {
+    /* Para pantallas entre 600px y 899px: 3 por fila */
+    @media (min-width: 600px) and (max-width: 899px) {
       .card {
-        flex: 1 1 100%;
-        min-width: auto;
+        flex: 0 0 30%;
+        margin-bottom: 16px;
+      }
+    }
+
+    /* Para pantallas mayores a 900px: 4 por fila */
+    @media (min-width: 900px) {
+      .card {
+        flex: 0 0 22%;
+        margin-bottom: 16px;
       }
     }
   </style>
