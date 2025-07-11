@@ -33,15 +33,15 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+      gap: 10px;
       width: 100%;
-      max-width: 700px;
+      max-width: 500px;
     }
 
     .card {
       background: #fff;
-      border-radius: 16px;
+      border-radius: 12px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       text-decoration: none;
       color: #222;
@@ -49,34 +49,24 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      transition: transform 0.25s ease;
       aspect-ratio: 1 / 1;
-      padding: 14px;
+      padding: 8px;
+      transition: transform 0.2s ease;
     }
 
     .card:hover {
-      transform: scale(1.05);
+      transform: scale(1.04);
     }
 
     .icon {
-      font-size: 26px;
-      margin-bottom: 6px;
+      font-size: clamp(20px, 6vw, 28px);
+      margin-bottom: 5px;
       color: #0070f3;
     }
 
     .label {
-      font-size: 12px;
+      font-size: clamp(10px, 3vw, 14px);
       text-align: center;
-    }
-
-    @media (min-width: 768px) {
-      .icon {
-        font-size: 32px;
-      }
-
-      .label {
-        font-size: 14px;
-      }
     }
   </style>
 </head>
