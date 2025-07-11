@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Apps PWA de Don Beltrán</title>
+  <title>Apps PWA</title>
 
   <!-- Google Fonts: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
-  
+
   <!-- FontAwesome CDN -->
   <link
     rel="stylesheet"
@@ -31,17 +31,11 @@
       color: #222;
     }
 
-    h1 {
-      margin-bottom: 30px;
-      font-weight: 600;
-      font-size: 1.8rem;
-    }
-
     .grid-container {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 12px;
-      max-width: 210px; /* Mitad tamaño */
+      max-width: 210px; /* ajusta tamaño */
       margin: 0 auto;
     }
 
@@ -56,7 +50,7 @@
       align-items: center;
       justify-content: center;
       width: 100%;
-      aspect-ratio: 1 / 1; /* cuadrado perfecto */
+      aspect-ratio: 1 / 1;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
       cursor: pointer;
       padding: 10px;
@@ -85,7 +79,7 @@
     /* Tablets: 3 columnas */
     @media (min-width: 600px) {
       .grid-container {
-        max-width: 325px; /* mitad tamaño */
+        max-width: 325px;
         grid-template-columns: repeat(3, 1fr);
       }
     }
@@ -93,15 +87,13 @@
     /* Desktop: 4 columnas */
     @media (min-width: 900px) {
       .grid-container {
-        max-width: 450px; /* mitad tamaño */
+        max-width: 450px;
         grid-template-columns: repeat(4, 1fr);
       }
     }
   </style>
 </head>
 <body>
-
-  <h1 id="title">Explora nuestras Apps PWA</h1>
 
   <div class="grid-container">
     <a class="card" href="https://ferczi3376tseg2.vercel.app/" target="_blank" rel="noopener noreferrer">
@@ -138,7 +130,6 @@
   <script>
     const translations = {
       en: {
-        title: "Explore our PWA Apps",
         taxi: "Taxi",
         restaurant: "Restaurant",
         spa: "Spa",
@@ -147,7 +138,6 @@
         radio: "Radio"
       },
       es: {
-        title: "Explora nuestras Apps PWA",
         taxi: "Taxi",
         restaurant: "Restaurante",
         spa: "Spa",
@@ -160,7 +150,6 @@
     const lang = navigator.language.startsWith("en") ? "en" : "es";
     const t = translations[lang];
 
-    document.getElementById("title").textContent = t.title;
     document.querySelectorAll("[data-key]").forEach(el => {
       el.textContent = t[el.dataset.key];
     });
