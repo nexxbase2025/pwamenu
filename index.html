@@ -8,7 +8,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f9f9f9;
+      background: transparent;
       margin: 0;
       padding: 20px;
       text-align: center;
@@ -26,7 +26,7 @@
     }
 
     .bubble {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.85);
       border-radius: 50%;
       width: 120px;
       height: 120px;
@@ -69,40 +69,73 @@
       }
     }
   </style>
-
-  <!-- Íconos con Emoji (puedes reemplazar por imágenes o FontAwesome si quieres algo más pro) -->
 </head>
 <body>
 
-  <h1>Explora nuestras Apps PWA</h1>
+  <h1 id="title">Explora nuestras Apps PWA</h1>
 
   <div class="bubbles-container">
-
-    <!-- Taxi -->
     <a class="bubble" href="https://ferczi3376tseg2.vercel.app/" target="_blank">
       <div class="bubble-icon">🚕</div>
-      <div class="bubble-label">Taxi</div>
+      <div class="bubble-label" data-key="taxi">Taxi</div>
     </a>
 
-    <!-- Restaurante -->
     <a class="bubble" href="https://boxdelta-xj19ejem.vercel.app/" target="_blank">
       <div class="bubble-icon">🍽️</div>
-      <div class="bubble-label">Restaurante</div>
+      <div class="bubble-label" data-key="restaurant">Restaurante</div>
     </a>
 
-    <!-- Spa -->
     <a class="bubble" href="https://appbllza.vercel.app/" target="_blank">
       <div class="bubble-icon">💆‍♀️</div>
-      <div class="bubble-label">Spa</div>
+      <div class="bubble-label" data-key="spa">Spa</div>
     </a>
 
-    <!-- Gimnasio -->
-    <a class="bubble" href="https://tupwa-gym.vercel.app" target="_blank">
+    <a class="bubble" href="MUYPRONTO" target="_blank">
       <div class="bubble-icon">🏋️‍♂️</div>
-      <div class="bubble-label">Gimnasio</div>
+      <div class="bubble-label" data-key="gym">Gimnasio</div>
     </a>
 
+    <a class="bubble" href="MUYPRONTO" target="_blank">
+      <div class="bubble-icon">💿</div>
+      <div class="bubble-label" data-key="dj">Djs</div>
+    </a>
+
+    <a class="bubble" href="MUYPRONTO" target="_blank">
+      <div class="bubble-icon">📻</div>
+      <div class="bubble-label" data-key="radio">Radio</div>
+    </a>
   </div>
+
+  <script>
+    const translations = {
+      en: {
+        title: "Explore our PWA Apps",
+        taxi: "Taxi",
+        restaurant: "Restaurant",
+        spa: "Spa",
+        gym: "Gym",
+        dj: "DJs",
+        radio: "Radio"
+      },
+      es: {
+        title: "Explora nuestras Apps PWA",
+        taxi: "Taxi",
+        restaurant: "Restaurante",
+        spa: "Spa",
+        gym: "Gimnasio",
+        dj: "Djs",
+        radio: "Radio"
+      }
+    };
+
+    const userLang = navigator.language.startsWith('en') ? 'en' : 'es';
+    const t = translations[userLang];
+
+    document.getElementById('title').textContent = t.title;
+    document.querySelectorAll('[data-key]').forEach(el => {
+      el.textContent = t[el.dataset.key];
+    });
+  </script>
 
 </body>
 </html>
