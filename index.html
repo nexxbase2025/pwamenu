@@ -3,70 +3,96 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Apps PWA de Don Beltrán</title>
+  
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  
+  <!-- FontAwesome CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pVbJZNV7Wq6JJQF7Ul5KZP7V0P4N7MlHjD+Qe0vCmVAlw9gWt38NLHEcc2lc7d+RmTq38lV+TvZnI1VxQkx0sw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  
   <style>
     * {
       box-sizing: border-box;
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', Arial, sans-serif;
       margin: 0;
       padding: 20px;
       background: transparent;
       text-align: center;
+      color: #222;
     }
 
     h1 {
       margin-bottom: 30px;
+      font-weight: 600;
+      font-size: 1.8rem;
     }
 
     .cards-container {
       display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-width: 500px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      max-width: 700px;
       margin: 0 auto;
     }
 
     .card {
       display: flex;
       align-items: center;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 20px;
-      padding: 15px 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
       text-decoration: none;
-      color: #333;
-      transition: transform 0.2s ease, background 0.3s ease;
+      color: #222;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+      flex: 0 1 48%; /* 2 por fila */
+      min-width: 260px;
     }
 
     .card:hover {
-      transform: scale(1.03);
-      background: rgba(255, 255, 255, 1);
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     }
 
     .icon {
       font-size: 30px;
-      margin-right: 15px;
+      margin-right: 18px;
+      color: #0070f3;
+      min-width: 36px;
+      text-align: center;
     }
 
     .label {
-      font-size: 16px;
-      font-weight: bold;
+      font-size: 1.1rem;
+      font-weight: 600;
+      user-select: none;
     }
 
-    @media (max-width: 600px) {
+    /* En pantallas más grandes que 700px, quepan 3 cards por fila */
+    @media (min-width: 720px) {
       .card {
-        padding: 12px 16px;
+        flex: 0 1 31%;
       }
-      .icon {
-        font-size: 24px;
-        margin-right: 10px;
-      }
-      .label {
-        font-size: 14px;
+    }
+
+    /* En pantallas muy pequeñas, 1 sola tarjeta por fila */
+    @media (max-width: 400px) {
+      .card {
+        flex: 1 1 100%;
+        min-width: auto;
       }
     }
   </style>
@@ -76,37 +102,35 @@
   <h1 id="title">Explora nuestras Apps PWA</h1>
 
   <div class="cards-container">
-
-    <a class="card" href="https://ferczi3376tseg2.vercel.app/" target="_blank">
-      <div class="icon">🚕</div>
+    <a class="card" href="https://ferczi3376tseg2.vercel.app/" target="_blank" rel="noopener noreferrer">
+      <div class="icon"><i class="fas fa-taxi"></i></div>
       <div class="label" data-key="taxi">Taxi</div>
     </a>
 
-    <a class="card" href="https://boxdelta-xj19ejem.vercel.app/" target="_blank">
-      <div class="icon">🍽️</div>
+    <a class="card" href="https://boxdelta-xj19ejem.vercel.app/" target="_blank" rel="noopener noreferrer">
+      <div class="icon"><i class="fas fa-utensils"></i></div>
       <div class="label" data-key="restaurant">Restaurante</div>
     </a>
 
-    <a class="card" href="https://appbllza.vercel.app/" target="_blank">
-      <div class="icon">💆‍♀️</div>
+    <a class="card" href="https://appbllza.vercel.app/" target="_blank" rel="noopener noreferrer">
+      <div class="icon"><i class="fas fa-spa"></i></div>
       <div class="label" data-key="spa">Spa</div>
     </a>
 
-    <a class="card" href="MUYPRONTO" target="_blank">
-      <div class="icon">🏋️‍♂️</div>
+    <a class="card" href="MUYPRONTO" target="_blank" rel="noopener noreferrer">
+      <div class="icon"><i class="fas fa-dumbbell"></i></div>
       <div class="label" data-key="gym">Gimnasio</div>
     </a>
 
-    <a class="card" href="MUYPRONTO" target="_blank">
-      <div class="icon">💿</div>
+    <a class="card" href="MUYPRONTO" target="_blank" rel="noopener noreferrer">
+      <div class="icon"><i class="fas fa-compact-disc"></i></div>
       <div class="label" data-key="dj">Djs</div>
     </a>
 
-    <a class="card" href="MUYPRONTO" target="_blank">
-      <div class="icon">📻</div>
+    <a class="card" href="MUYPRONTO" target="_blank" rel="noopener noreferrer">
+      <div class="icon"><i class="fas fa-radio"></i></div>
       <div class="label" data-key="radio">Radio</div>
     </a>
-
   </div>
 
   <script>
