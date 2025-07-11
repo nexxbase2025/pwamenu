@@ -6,67 +6,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Apps PWA de Don Beltrán</title>
   <style>
-    html, body {
-      height: 100%;
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 20px;
-      font-family: Arial, sans-serif;
       background: transparent;
       text-align: center;
-      overflow: hidden; /* Elimina scroll */
     }
 
     h1 {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
-    .bubbles-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-content: center;
-      height: calc(100% - 60px); /* deja espacio para el título */
-      gap: 10px;
-    }
-
-    .bubble {
-      background: rgba(255, 255, 255, 0.85);
-      border-radius: 50%;
-      flex: 1 0 20%;
-      max-width: 120px;
-      max-height: 120px;
-      aspect-ratio: 1/1;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    .cards-container {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      gap: 15px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .card {
+      display: flex;
       align-items: center;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      padding: 15px 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       text-decoration: none;
       color: #333;
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, background 0.3s ease;
     }
 
-    .bubble:hover {
-      transform: scale(1.05);
+    .card:hover {
+      transform: scale(1.03);
+      background: rgba(255, 255, 255, 1);
     }
 
-    .bubble-icon {
-      font-size: 28px;
-      margin-bottom: 5px;
+    .icon {
+      font-size: 30px;
+      margin-right: 15px;
     }
 
-    .bubble-label {
-      font-size: 13px;
+    .label {
+      font-size: 16px;
       font-weight: bold;
     }
 
-    @media (max-width: 500px) {
-      .bubble-icon {
-        font-size: 24px;
+    @media (max-width: 600px) {
+      .card {
+        padding: 12px 16px;
       }
-
-      .bubble-label {
-        font-size: 11px;
+      .icon {
+        font-size: 24px;
+        margin-right: 10px;
+      }
+      .label {
+        font-size: 14px;
       }
     }
   </style>
@@ -75,36 +75,38 @@
 
   <h1 id="title">Explora nuestras Apps PWA</h1>
 
-  <div class="bubbles-container">
-    <a class="bubble" href="https://ferczi3376tseg2.vercel.app/" target="_blank">
-      <div class="bubble-icon">🚕</div>
-      <div class="bubble-label" data-key="taxi">Taxi</div>
+  <div class="cards-container">
+
+    <a class="card" href="https://ferczi3376tseg2.vercel.app/" target="_blank">
+      <div class="icon">🚕</div>
+      <div class="label" data-key="taxi">Taxi</div>
     </a>
 
-    <a class="bubble" href="https://boxdelta-xj19ejem.vercel.app/" target="_blank">
-      <div class="bubble-icon">🍽️</div>
-      <div class="bubble-label" data-key="restaurant">Restaurante</div>
+    <a class="card" href="https://boxdelta-xj19ejem.vercel.app/" target="_blank">
+      <div class="icon">🍽️</div>
+      <div class="label" data-key="restaurant">Restaurante</div>
     </a>
 
-    <a class="bubble" href="https://appbllza.vercel.app/" target="_blank">
-      <div class="bubble-icon">💆‍♀️</div>
-      <div class="bubble-label" data-key="spa">Spa</div>
+    <a class="card" href="https://appbllza.vercel.app/" target="_blank">
+      <div class="icon">💆‍♀️</div>
+      <div class="label" data-key="spa">Spa</div>
     </a>
 
-    <a class="bubble" href="MUYPRONTO" target="_blank">
-      <div class="bubble-icon">🏋️‍♂️</div>
-      <div class="bubble-label" data-key="gym">Gimnasio</div>
+    <a class="card" href="MUYPRONTO" target="_blank">
+      <div class="icon">🏋️‍♂️</div>
+      <div class="label" data-key="gym">Gimnasio</div>
     </a>
 
-    <a class="bubble" href="MUYPRONTO" target="_blank">
-      <div class="bubble-icon">💿</div>
-      <div class="bubble-label" data-key="dj">Djs</div>
+    <a class="card" href="MUYPRONTO" target="_blank">
+      <div class="icon">💿</div>
+      <div class="label" data-key="dj">Djs</div>
     </a>
 
-    <a class="bubble" href="MUYPRONTO" target="_blank">
-      <div class="bubble-icon">📻</div>
-      <div class="bubble-label" data-key="radio">Radio</div>
+    <a class="card" href="MUYPRONTO" target="_blank">
+      <div class="icon">📻</div>
+      <div class="label" data-key="radio">Radio</div>
     </a>
+
   </div>
 
   <script>
@@ -129,11 +131,11 @@
       }
     };
 
-    const userLang = navigator.language.startsWith('en') ? 'en' : 'es';
-    const t = translations[userLang];
+    const lang = navigator.language.startsWith("en") ? "en" : "es";
+    const t = translations[lang];
 
-    document.getElementById('title').textContent = t.title;
-    document.querySelectorAll('[data-key]').forEach(el => {
+    document.getElementById("title").textContent = t.title;
+    document.querySelectorAll("[data-key]").forEach(el => {
       el.textContent = t[el.dataset.key];
     });
   </script>
